@@ -6,6 +6,9 @@
 #
 # Triage never applies ready-to-code on its own, so the code agent starts
 # only when a human runs /fs-code or adds the ready-to-code label.
+#
+# Bugs are traced to their root cause, across repos (bug-root-cause), so
+# triage gets twice the upstream 10-minute budget.
 base: https://raw.githubusercontent.com/fullsend-ai/agents/87a43fcb849546b267a619434ca19dedde8df476/harness/triage.yaml#sha256=ae07e51bb1f634bbb842a498f9ca4cd588982c7811d1ae4c07a06232e50a231b
 
 env:
@@ -14,5 +17,8 @@ env:
   sandbox:
     TRIAGE_AUTO_CODE: "off"
 
+timeout_minutes: 20
+
 skills:
   - skills/repo-map
+  - skills/bug-root-cause

@@ -9,9 +9,10 @@ public because fullsend fetches those URLs without credentials.
 
 | File | Used by | What it changes |
 |---|---|---|
-| `harness/triage.yaml` | triage | `TRIAGE_AUTO_CODE=off`: triage never applies `ready-to-code`, so the code agent starts only on a human `/fs-code` or label. Adds `repo-map`. |
+| `harness/triage.yaml` | triage | `TRIAGE_AUTO_CODE=off`: triage never applies `ready-to-code`, so the code agent starts only on a human `/fs-code` or label. Adds `repo-map` and `bug-root-cause`, and a 20-minute budget (upstream: 10). |
 | `harness/code.yaml`, `harness/fix.yaml`, `harness/review.yaml` | code, fix, review | Add `repo-map`. |
 | `skills/repo-map/` | all four harnesses, and local Claude Code | Map of the repos and their dependencies, and how to read sibling repos, so agents follow a problem into the repo where it lives and open a linked issue there |
+| `skills/bug-root-cause/` | triage | For bug reports: trace each symptom into the code (in any repo) before deciding, and file the issue in the repo where the cause is (`prerequisites` or `split`), since the coder can't |
 | `.claude-plugin/` | local Claude Code | Makes this repo a Claude Code plugin marketplace, so the skills in `skills/` also load in local Claude Code sessions |
 
 homino layers its own private harnesses on top of these (`.fullsend/<agent>.yaml`
