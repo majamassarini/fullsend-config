@@ -1,0 +1,14 @@
+{
+  "name": "fullsend-config",
+  "owner": {
+    "name": "majamassarini"
+  },
+  "description": "Shared skills for the majamassarini home-automation repositories.",
+  "plugins": [
+    {
+      "name": "fullsend-config",
+      "source": "./",
+      "description": "Skills shared by the majamassarini fullsend agents and local Claude Code, such as repo-map."
+    }
+  ]
+}

@@ -51,8 +51,12 @@ Where a problem usually lives:
 
 ## Reading another repo's code
 
-All repos except `homino` are public. From the sandbox, read them through
-the GitHub API with `gh`. Don't clone them.
+On a developer machine, the repos are usually checked out side by side
+(for example `../automate-home` next to `homino`): read them there directly.
+
+In a fullsend sandbox only the current repo is checked out. All repos except
+`homino` are public: read them through the GitHub API with `gh`. Don't clone
+them.
 
 ```bash
 # search across all the repos
@@ -62,15 +66,19 @@ gh api repos/majamassarini/automate-home/contents/home/appliance/light
 gh api repos/majamassarini/automate-home/contents/home/appliance/light/__init__.py --jq .content | base64 -d
 ```
 
-`homino` is private: from any other repo you can't read it, so don't try.
+`homino` is private: from another repo's sandbox you can't read it, so
+don't try.
 
 ## When the cause is in another repo
 
-You can only change the repository you are running in. If the root cause,
-or part of the fix, is in another repo:
+A fullsend agent can only change the repository it runs in. If the root
+cause, or part of the fix, is in another repo:
 
 1. Say so explicitly, naming the repo, file and function, with evidence.
 2. Use the cross-repo issue mechanism to open a linked issue in that repo,
    describing the root cause there. That repo's own agents take it from
    there.
 3. Fix here only what belongs here.
+
+Working locally with a person, ask them instead whether to change the other
+checkout directly or to open the issue.

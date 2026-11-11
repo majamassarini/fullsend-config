@@ -1,0 +1,6 @@
+{
+  "name": "fullsend-config",
+  "description": "Skills shared by the majamassarini fullsend agents and local Claude Code, such as repo-map.",
+  "author": { "name": "majamassarini" },
+  "repository": "https://github.com/majamassarini/fullsend-config"
+}
