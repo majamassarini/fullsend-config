@@ -1,0 +1,9 @@
+# Shared fullsend code harness for every majamassarini repo, referenced from
+# repos.yaml in majamassarini/homino by commit URL + sha256. See README.md.
+#
+# Adds the repo-map skill so the agent can follow a problem into the other
+# repositories it depends on.
+base: https://raw.githubusercontent.com/fullsend-ai/agents/87a43fcb849546b267a619434ca19dedde8df476/harness/code.yaml#sha256=8973a15fe53798c632d86c6d2e595a476bfb7cd2f9392961b63533e30d4f1e15
+
+skills:
+  - skills/repo-map

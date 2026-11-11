@@ -1,0 +1,18 @@
+# Shared fullsend triage harness for every majamassarini repo. The fleet
+# manifest (repos.yaml in the private majamassarini/homino) references it
+# by commit URL + sha256 as the triage agent's source; this repo is public
+# so workflows can fetch it. After changing it, re-pin that URL in repos.yaml
+# and run `fullsend repos install`.
+#
+# Triage never applies ready-to-code on its own, so the code agent starts
+# only when a human runs /fs-code or adds the ready-to-code label.
+base: https://raw.githubusercontent.com/fullsend-ai/agents/87a43fcb849546b267a619434ca19dedde8df476/harness/triage.yaml#sha256=ae07e51bb1f634bbb842a498f9ca4cd588982c7811d1ae4c07a06232e50a231b
+
+env:
+  runner:
+    TRIAGE_AUTO_CODE: "off"
+  sandbox:
+    TRIAGE_AUTO_CODE: "off"
+
+skills:
+  - skills/repo-map
